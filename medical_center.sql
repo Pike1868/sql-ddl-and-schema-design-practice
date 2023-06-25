@@ -55,3 +55,30 @@ CREATE TABLE diagnoses(
     disease_id REFERENCES diseases
     notes TEXT
 )
+
+
+-- Insert medical centers
+INSERT INTO medical_center (name) VALUES ('Healthcare Clinic');
+INSERT INTO medical_center (name) VALUES ('Wellness Medical Center');
+
+-- Insert doctors
+INSERT INTO doctors (first_name, last_name, specialty) VALUES ('John', 'Doe', 'Cardiology');
+INSERT INTO doctors (first_name, last_name, specialty) VALUES ('Jane', 'Smith', 'Neurology');
+
+-- Insert patients
+INSERT INTO patients (first_name, last_name, dob, insurance) VALUES ('Alice', 'Johnson', '1980-05-15', 'Medicare');
+INSERT INTO patients (first_name, last_name, dob, insurance) VALUES ('Bob', 'Brown', '1992-11-23', 'Blue Cross');
+
+-- Insert visits
+-- Assuming the IDs of Dr. John Doe, Dr. Jane Smith, Alice Johnson and Bob Brown are 1, 2, 1, and 2 respectively.
+INSERT INTO visits (doctor_id, patient_id, date_of_visit) VALUES (1, 1, '2023-06-01');
+INSERT INTO visits (doctor_id, patient_id, date_of_visit) VALUES (2, 2, '2023-06-05');
+
+-- Insert diseases
+INSERT INTO diseases (name, description) VALUES ('Hypertension', 'A condition in which the force of the blood against the artery walls is too high.');
+INSERT INTO diseases (name, description) VALUES ('Migraine', 'A headache of varying intensity, often accompanied by nausea and sensitivity to light and sound.');
+
+-- Insert diagnoses
+-- Assuming the IDs of the visits and diseases are 1 and 1 for the first visit, and 2 and 2 for the second visit.
+INSERT INTO diagnoses (visit_id, disease_id, notes) VALUES (1, 1, 'Patient to reduce salt intake and monitor blood pressure.');
+INSERT INTO diagnoses (visit_id, disease_id, notes) VALUES (2, 2, 'Prescribed pain relief medication.');
